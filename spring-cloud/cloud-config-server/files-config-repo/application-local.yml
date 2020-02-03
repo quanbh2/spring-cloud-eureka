@@ -7,7 +7,7 @@ spring:
     username: sa
     password: 1111
     continue-on-error: true
-    data: classpath:sql/init-data.sql
+#    data: classpath:sql/init-data.sql
     initialization-mode: always #The default value is embedded - e.g. initialize data in file init-data.sql only if you're running and embedded database, like H2.
   jpa:
     hibernate.ddl-auto: create
@@ -21,3 +21,20 @@ spring:
     console:
       enabled: true
       path: /h2-console
+
+# Authenticator --------------------------------------
+facebook.token_info.url:
+
+google:
+  credential:
+    client:
+      id: 696216848398-4gkns4u2qlm0rcv2o6851k39bqf2l38s.apps.googleusercontent.com
+      secret: aG-W08gt3QIjOss91EQlUPgm
+  token_info.url:
+
+spring.session.store-type: none
+
+authen:
+  jwt:
+    secret: quanbh2
+    expiredTime: 1000000

@@ -11,5 +11,17 @@
 
   <artifactId>service-middleware</artifactId>
 
+  <dependencies>
+
+    <!-- internal project declare -->
+    <dependency>
+      <groupId>net.group</groupId>
+      <artifactId>supporter-http-client</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+
+
+  </dependencies>
+
 
 </project>
