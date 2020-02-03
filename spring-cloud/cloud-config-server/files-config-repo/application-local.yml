@@ -28,8 +28,8 @@ facebook.token_info.url:
 google:
   credential:
     client:
-      id: 696216848398-4gkns4u2qlm0rcv2o6851k39bqf2l38s.apps.googleusercontent.com
-      secret: aG-W08gt3QIjOss91EQlUPgm
+      id: xxx => read file note in local
+      secret: xxx => read file note in local
   token_info.url:
 
 spring.session.store-type: none
