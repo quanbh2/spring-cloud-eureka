@@ -28,8 +28,8 @@ facebook.token_info.url:
 google:
   credential:
     client:
-      id: xxx => read file note in local
-      secret: xxx => read file note in local
+      id: ${GOOGLE_CLIENT_ID}
+      secret: ${GOOGLE_CLIENT_SECRET}
   token_info.url:
 
 spring.session.store-type: none

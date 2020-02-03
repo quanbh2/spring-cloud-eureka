@@ -50,17 +50,20 @@ public class GoogleTokenServiceImpl implements ThirdPartyVerifyTokenService {
 
   private GoogleIdToken.Payload getPayloadByTokenFromGoogle(String token) {
 
+    log.info("google-token: {}", token);
     // 1. create GoogleIdTokenVerifier
     GoogleIdTokenVerifier verifier =
         new GoogleIdTokenVerifier.Builder(
                 new NetHttpTransport(), JacksonFactory.getDefaultInstance())
             .setAudience(Collections.singletonList(clientId))
             .build();
+    log.info("verifier: {}", verifier);
 
     // 2. verify token and get GoogleIdToken
     GoogleIdToken idToken;
     try {
       idToken = verifier.verify(token);
+      log.info("idToken: {}", idToken); // google token can be expired if idToken is null in this step
     } catch (Exception ex) {
       idToken = null;
       log.error(ExceptionUtils.getStackTrace(ex));
