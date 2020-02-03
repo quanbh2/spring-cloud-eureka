@@ -1,0 +1,7 @@
+###
+# Spring config server
+spring:
+  cloud:
+    config:
+      request-read-timeout: 20000
+      request-connect-timeout: 20000

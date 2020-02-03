@@ -1,0 +1,11 @@
+server:
+  port: 8866
+
+spring:
+  profiles:
+    include: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:./spring-cloud/cloud-config-server/files-config-repo/

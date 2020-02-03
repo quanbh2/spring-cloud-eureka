@@ -1,0 +1,23 @@
+
+#
+spring:
+  datasource:
+    url: 'jdbc:h2:mem:mydb'
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 1111
+    continue-on-error: true
+    data: classpath:sql/init-data.sql
+    initialization-mode: always #The default value is embedded - e.g. initialize data in file init-data.sql only if you're running and embedded database, like H2.
+  jpa:
+    hibernate.ddl-auto: create
+    show-sql: true
+    open-in-view: false
+    properties.hibernate:
+      dialect: org.hibernate.dialect.H2Dialect
+      enable_lazy_load_no_trans: true
+#      format_sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
