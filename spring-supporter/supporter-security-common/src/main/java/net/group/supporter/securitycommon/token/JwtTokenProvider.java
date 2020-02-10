@@ -42,6 +42,7 @@ public class JwtTokenProvider implements TokenProvider {
   public String generateToken(DemoUser demoUser) {
     Date now = new Date();
     Date expiryDate = new Date(now.getTime() + jwtExpiration);
+    log.info("expiryDate: {}", expiryDate);
 
     return Jwts.builder()
         .setSubject(demoUser.getEmail())
@@ -93,7 +94,7 @@ public class JwtTokenProvider implements TokenProvider {
 
         return new UsernamePasswordAuthenticationToken(email, null, authorities);
       } else {
-        log.error("Cant not authentication from token: [{}] because null or empty", token);
+        log.error("Cant not authentication from token: [{}]", token);
       }
 
     } catch (Exception ex) {

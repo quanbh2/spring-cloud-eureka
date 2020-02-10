@@ -20,6 +20,12 @@
       <version>1.0-SNAPSHOT</version>
     </dependency>
 
+    <dependency>
+      <groupId>net.group</groupId>
+      <artifactId>supporter-security-common</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+
 
   </dependencies>
 

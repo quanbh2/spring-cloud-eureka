@@ -2,13 +2,13 @@ package net.group.supporter.securitycommon.filter;
 
 import lombok.extern.slf4j.Slf4j;
 import net.group.supporter.securitycommon.token.TokenProvider;
-import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -49,8 +49,9 @@ public class TokenRequestFilter extends OncePerRequestFilter {
     try {
 
       // find token in header
-      String requestTokenHeader = httpServletRequest.getHeader(HttpHeaders.AUTHORIZATION);
-      if (StringUtils.isBlank(requestTokenHeader)) {
+      String requestTokenHeader = getJwtFromRequest(httpServletRequest);
+      //String requestTokenHeader = httpServletRequest.getHeader(HttpHeaders.AUTHORIZATION);
+      if (StringUtils.isEmpty(requestTokenHeader)) {
         // find token in cookie
         requestTokenHeader = getCookieToken(httpServletRequest, HttpHeaders.AUTHORIZATION);
       }
@@ -82,6 +83,14 @@ public class TokenRequestFilter extends OncePerRequestFilter {
           return cookie.getValue();
         }
       }
+    }
+    return null;
+  }
+
+  private String getJwtFromRequest(HttpServletRequest request) {
+    String bearerToken = request.getHeader(HttpHeaders.AUTHORIZATION);
+    if ( StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
+      return bearerToken.substring(7);
     }
     return null;
   }

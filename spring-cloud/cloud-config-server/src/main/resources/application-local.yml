@@ -1,5 +1,5 @@
 server:
-  port: 8866
+  port: 5000
 
 spring:
   profiles:
@@ -8,4 +8,5 @@ spring:
     config:
       server:
         native:
-          search-locations: file:./spring-cloud/cloud-config-server/files-config-repo/
+          search-locations: classpath:config/
+          #search-locations: file:./spring-cloud/cloud-config-server/files-config-repo/

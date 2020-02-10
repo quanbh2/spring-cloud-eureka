@@ -1,4 +1,4 @@
-package net.group.service.authenticatorcenter.config;
+package net.group.service.middleware.config;
 
 import net.group.supporter.securitycommon.exception.UnAuthorizedEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
